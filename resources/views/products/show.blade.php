@@ -1,6 +1,8 @@
 @extends('layouts.app')
+
 @section('content')
 <div class="container">
+
   @if(session()->has('cart'))
     <div class="modal">
       <div class="modal-content center-align">
@@ -20,6 +22,7 @@
       </div>
     </div>
   @endif
+
   <div class=row>
     <div class="col s12 m6">
       <img style="width: 100%" src="/images/{{ $produit->image }}">
@@ -43,8 +46,10 @@
       </form>
     </div>
   </div>
+
 </div>
 @endsection
+
 @section('javascript')
   <script>
     @if(session()->has('cart'))

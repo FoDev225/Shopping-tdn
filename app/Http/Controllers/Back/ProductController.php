@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use App\DataTables\ProductsDataTable;
 use App\Http\Requests\ProductRequest;
 use Intervention\Image\Facades\Image as InterventionImage;
-use Illuminate\Support\Facades\File
+use Illuminate\Support\Facades\File;
 
 class ProductController extends Controller
 {

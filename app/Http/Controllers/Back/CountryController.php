@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Back;
 
 use App\Http\Controllers\Controller;
-use App\Models\Country;
 use Illuminate\Http\Request;
 use App\DataTables\CountriesDataTable;
 use App\Models\{ Country, Range };

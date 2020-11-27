@@ -88,8 +88,8 @@
                 $admins = User::whereAdmin(true)->get();
                 foreach($admins as $admin) {
                     $admin->notify(new NewUser());
-    }     
+                }     
             }        
             return redirect(route('adresses.create'))->with('message', config('messages.registered'));
         }
-}
+    }

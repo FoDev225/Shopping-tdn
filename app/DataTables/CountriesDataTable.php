@@ -22,8 +22,9 @@ class CountriesDataTable extends DataTable
             ->addColumn('edit', function ($country) {
                 return '<a href="' . route('pays.edit', $country->id) . '" class="btn btn-xs btn-warning btn-block">Modifier</a>';
             })
-           ->addColumn('destroy', function ($country) {
-            return '<a href="' . route('pays.destroy.alert', $country->id) . '" class="btn btn-xs btn-danger btn-block ' . ($country->ranges->count() || $country->addresses->count() || $country->order_addresses->count() ? 'disabled' : '') .'">Supprimer</a>';
+            ->addColumn('destroy', function ($country) {
+                return '<a href="' . route('pays.destroy.alert', $country->id) . '" class="btn btn-xs btn-danger btn-block ' . ($country->addresses->count() || $country->order_addresses->count() ? 'disabled' : '') .'">Supprimer</a>';
+            })
             ->rawColumns(['edit', 'destroy']);
     }
     /**
