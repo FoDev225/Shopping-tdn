@@ -1,8 +1,11 @@
 <?php
+
 namespace App\DataTables;
+
 use App\Models\State;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Services\DataTable;
+
 class StatesDataTable extends DataTable
 {
     /**
@@ -26,6 +29,7 @@ class StatesDataTable extends DataTable
             })
             ->rawColumns(['edit', 'destroy', 'color']);
     }
+
     /**
      * Get query source of dataTable.
      *
@@ -36,6 +40,7 @@ class StatesDataTable extends DataTable
     {
         return $model->with('orders')->newQuery();
     }
+
     /**
      * Optional method if you want to use html builder.
      *
@@ -52,6 +57,7 @@ class StatesDataTable extends DataTable
                     ->lengthMenu()
                     ->language('//cdn.datatables.net/plug-ins/1.10.20/i18n/French.json');
     }
+
     /**
      * Get columns.
      *
@@ -75,6 +81,7 @@ class StatesDataTable extends DataTable
               ->addClass('text-center'),
         ];
     }
+
     /**
      * Get filename for export.
      *

@@ -1,6 +1,8 @@
 @extends('layouts.app')
+
 @section('content')
 <div class="container">
+
   <div class="row">
     <div class="col s12 m10 offset-m1 l8 offset-l2">
       <div class="card">
@@ -8,7 +10,9 @@
           <div class="card-content">
             @csrf
             <span class="card-title">Créez votre compte</span>
+
             <hr>
+
             <x-input
               name="firstname"
               type="text"
@@ -16,6 +20,7 @@
               label="Prénom"
               required="true"
             ></x-input>
+
             <x-input
               name="name"
               type="text"
@@ -23,6 +28,7 @@
               label="Nom"
               required="true"
             ></x-input>
+
             <x-input
               name="email"
               type="email"
@@ -30,6 +36,7 @@
               label="Adresse mail"
               required="true"
             ></x-input>
+
             <x-input
               name="password"
               type="password"
@@ -37,6 +44,7 @@
               label="Mot de passe"
               required="true"
             ></x-input>
+
             <div class="row">
               <div class="input-field col s12">
                 <i class="material-icons prefix">lock</i>
@@ -44,12 +52,14 @@
                 <label for="password-confirm">Confirmation du mot de passe</label>
               </div>
             </div>
+
             <div class="row col s12">
               <label>
                 <input type="checkbox" name="newsletter" id="newsletter" {{ old('newsletter') ? 'checked' : '' }}>
                 <span>Je désire recevoir votre lettre d'information</span>
               </label>
             </div>
+
             <div class="row col s12">
               <label>
                 <input type="checkbox" name="rgpd" id="rgpd" {{ old('rgpd') ? 'checked' : '' }}>
@@ -62,6 +72,7 @@
                 Enregistrer
               </button>
             </p>
+
           </div>
         </form>
       </div>
@@ -69,6 +80,7 @@
   </div>
 </div>
 @endsection
+
 @section('javascript')
   <script>
     document.addEventListener('DOMContentLoaded', function() {

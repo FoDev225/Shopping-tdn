@@ -1,8 +1,11 @@
 <?php
+
 namespace App\DataTables;
+
 use App\Models\Order;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Services\DataTable;
+
 class OrdersDataTable extends DataTable
 {
     /**
@@ -42,6 +45,7 @@ class OrdersDataTable extends DataTable
             })
             ->rawColumns(['client', 'state_id', 'invoice_id', 'action']);
     }
+
     /**
      * Get query source of dataTable.
      *
@@ -52,6 +56,7 @@ class OrdersDataTable extends DataTable
     {
         return $model->with('state', 'user')->newQuery();
     }
+
     /**
      * Optional method if you want to use html builder.
      *
@@ -68,6 +73,7 @@ class OrdersDataTable extends DataTable
                     ->lengthMenu()
                     ->language('//cdn.datatables.net/plug-ins/1.10.20/i18n/French.json');
     }
+
     /**
      * Get columns.
      *
@@ -88,6 +94,7 @@ class OrdersDataTable extends DataTable
             Column::computed('action')->title('')->width(60)->addClass('text-center'),
         ];
     }
+
     /**
      * Get filename for export.
      *

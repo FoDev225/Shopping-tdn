@@ -1,4 +1,5 @@
 @extends('back.layout')
+
 @section('main') 
   <div class="container-fluid"> 
       @if(session()->has('alert'))
@@ -21,10 +22,11 @@
       <div class="col-sm-12">
         <div class="card">
         
-          <form method="POST" action="#">
+          <form method="POST" action="{{ route('colissimos.update') }}">
             <div class="card-body">
               @method('PUT')
               @csrf
+
               <div class="card">
                 <h5 class="card-header">Tarifs des envois en Colissimo par pays et plage de poids</h5>
                 <div class="card-body">
@@ -34,7 +36,7 @@
                       <tr>
                         <th>Pays</th>
                         @foreach ($ranges as $range)
-                          <th> <= {{ $range->max }} Kg </th>
+                          <th><= {{ $range->max }} Kg</th>
                         @endforeach
                       </tr>
                     </thead>
@@ -52,8 +54,10 @@
                       @endforeach
                     </tbody>
                   </table>
+
                 </div>
               </div>
+
               <div class="form-group row mb-0">
                 <div class="col-md-12">
                    <button type="submit" class="btn btn-primary">Enregistrer</button>
@@ -62,6 +66,7 @@
               
             </div>            
           </form>
+
         </div>
       </div>
     </div>

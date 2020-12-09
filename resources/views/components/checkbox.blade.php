@@ -1,14 +1,11 @@
-<div>
-    <!-- The only way to do great work is to love what you do. - Steve Jobs -->
-    <div class="form-group">
-	  <div class="custom-control custom-checkbox">
-	    <input 
-	      type="checkbox" 
-	      class="custom-control-input" 
-	      id="{{ $name }}" 
-	      name="{{ $name }}" 
-	      @if(old($name, $value)) checked @endif>
-	    <label class="custom-control-label" for="{{ $name }}">{{ $label }}</label>
-	  </div>
-	</div>
+<div class="form-group">
+  <div class="custom-control custom-checkbox">
+    <input 
+      type="checkbox" 
+      class="custom-control-input" 
+      id="{{ $name }}" 
+      name="{{ $name }}" 
+      @if(old($name, $value)) checked @endif>
+    <label class="custom-control-label" for="{{ $name }}">{{ $label }}</label>
+  </div>
 </div>

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f718bbe232bf69fc72c0e5b767f92709",
+    "content-hash": "c4e64ba43a4971237c9d3626a76fc7bb",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -183,6 +183,108 @@
                 }
             ],
             "time": "2020-08-18T23:57:15+00:00"
+        },
+        {
+            "name": "chartisan/php",
+            "version": "1.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Chartisan/PHP.git",
+                "reference": "85d2352077800e9bcb411aec1ff7e4d23eef93a1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Chartisan/PHP/zipball/85d2352077800e9bcb411aec1ff7e4d23eef93a1",
+                "reference": "85d2352077800e9bcb411aec1ff7e4d23eef93a1",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Chartisan\\PHP\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Èrik Campobadal Forés",
+                    "email": "soc@erik.cat"
+                }
+            ],
+            "description": "Chartisan's PHP backend",
+            "support": {
+                "issues": "https://github.com/Chartisan/PHP/issues",
+                "source": "https://github.com/Chartisan/PHP/tree/1.2.1"
+            },
+            "time": "2020-11-05T13:13:58+00:00"
+        },
+        {
+            "name": "consoletvs/charts",
+            "version": "7.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ConsoleTVs/Charts.git",
+                "reference": "a61a96e4fc48e4cc9a992a06a3e15352e647cdeb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ConsoleTVs/Charts/zipball/a61a96e4fc48e4cc9a992a06a3e15352e647cdeb",
+                "reference": "a61a96e4fc48e4cc9a992a06a3e15352e647cdeb",
+                "shasum": ""
+            },
+            "require": {
+                "chartisan/php": "^1.2.0",
+                "illuminate/console": "^7.14.1|^8.0",
+                "illuminate/contracts": "^7.14.1|^8.0",
+                "illuminate/http": "^7.14.1|^8.0",
+                "illuminate/support": "^7.14.1|^8.0",
+                "php": ">=7.4"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "ConsoleTVs\\Charts\\ChartsServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "ConsoleTVs\\Charts\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Èrik C. Forés",
+                    "email": "soc@erik.cat"
+                }
+            ],
+            "description": "The missing charting library on laravel, powered by Chartisan",
+            "support": {
+                "issues": "https://github.com/ConsoleTVs/Charts/issues",
+                "source": "https://github.com/ConsoleTVs/Charts/tree/7.1.0"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/ConsoleTVs",
+                    "type": "github"
+                },
+                {
+                    "url": "https://www.patreon.com/ErikCampobadal",
+                    "type": "patreon"
+                }
+            ],
+            "time": "2020-09-10T15:52:22+00:00"
         },
         {
             "name": "darryldecode/cart",
@@ -3425,16 +3527,16 @@
         },
         {
             "name": "stripe/stripe-php",
-            "version": "v7.66.0",
+            "version": "v7.66.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/stripe/stripe-php.git",
-                "reference": "0dc50f42b06be83fe7029410616bda6e89c6d2be"
+                "reference": "a2ebaa272a8797b21e81afaf8d5ba0953ff15e13"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/0dc50f42b06be83fe7029410616bda6e89c6d2be",
-                "reference": "0dc50f42b06be83fe7029410616bda6e89c6d2be",
+                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/a2ebaa272a8797b21e81afaf8d5ba0953ff15e13",
+                "reference": "a2ebaa272a8797b21e81afaf8d5ba0953ff15e13",
                 "shasum": ""
             },
             "require": {
@@ -3480,9 +3582,9 @@
             ],
             "support": {
                 "issues": "https://github.com/stripe/stripe-php/issues",
-                "source": "https://github.com/stripe/stripe-php/tree/v7.66.0"
+                "source": "https://github.com/stripe/stripe-php/tree/v7.66.1"
             },
-            "time": "2020-11-24T16:33:56+00:00"
+            "time": "2020-12-01T18:44:12+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6252,16 +6354,16 @@
         },
         {
             "name": "yajra/laravel-datatables-oracle",
-            "version": "v9.14.1",
+            "version": "v9.14.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/yajra/laravel-datatables.git",
-                "reference": "7e45885588225b31a9e7bdf4b04733c44432531c"
+                "reference": "9de204f96649665a8d902ea59a780839ffbe1cfe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yajra/laravel-datatables/zipball/7e45885588225b31a9e7bdf4b04733c44432531c",
-                "reference": "7e45885588225b31a9e7bdf4b04733c44432531c",
+                "url": "https://api.github.com/repos/yajra/laravel-datatables/zipball/9de204f96649665a8d902ea59a780839ffbe1cfe",
+                "reference": "9de204f96649665a8d902ea59a780839ffbe1cfe",
                 "shasum": ""
             },
             "require": {
@@ -6321,7 +6423,7 @@
             ],
             "support": {
                 "issues": "https://github.com/yajra/laravel-datatables/issues",
-                "source": "https://github.com/yajra/laravel-datatables/tree/v9.14.1"
+                "source": "https://github.com/yajra/laravel-datatables/tree/v9.14.2"
             },
             "funding": [
                 {
@@ -6333,7 +6435,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2020-11-11T07:12:41+00:00"
+            "time": "2020-11-27T01:51:56+00:00"
         }
     ],
     "packages-dev": [
@@ -7322,16 +7424,16 @@
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "7.0.10",
+            "version": "7.0.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "f1884187926fbb755a9aaf0b3836ad3165b478bf"
+                "reference": "52f55786aa2e52c26cd9e2db20aff2981e0f7399"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/f1884187926fbb755a9aaf0b3836ad3165b478bf",
-                "reference": "f1884187926fbb755a9aaf0b3836ad3165b478bf",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/52f55786aa2e52c26cd9e2db20aff2981e0f7399",
+                "reference": "52f55786aa2e52c26cd9e2db20aff2981e0f7399",
                 "shasum": ""
             },
             "require": {
@@ -7383,9 +7485,15 @@
             ],
             "support": {
                 "issues": "https://github.com/sebastianbergmann/php-code-coverage/issues",
-                "source": "https://github.com/sebastianbergmann/php-code-coverage/tree/7.0.10"
+                "source": "https://github.com/sebastianbergmann/php-code-coverage/tree/7.0.12"
             },
-            "time": "2019-11-20T13:55:58+00:00"
+            "funding": [
+                {
+                    "url": "https://github.com/sebastianbergmann",
+                    "type": "github"
+                }
+            ],
+            "time": "2020-11-27T06:08:35+00:00"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -7595,16 +7703,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "8.5.9",
+            "version": "8.5.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "f5c8a5dd5e7e8d68d7562bfb48d47287d33937d6"
+                "reference": "3123601e3b29339b20129acc3f989cfec3274566"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/f5c8a5dd5e7e8d68d7562bfb48d47287d33937d6",
-                "reference": "f5c8a5dd5e7e8d68d7562bfb48d47287d33937d6",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/3123601e3b29339b20129acc3f989cfec3274566",
+                "reference": "3123601e3b29339b20129acc3f989cfec3274566",
                 "shasum": ""
             },
             "require": {
@@ -7620,7 +7728,7 @@
                 "phar-io/version": "^2.0.1",
                 "php": "^7.2",
                 "phpspec/prophecy": "^1.10.3",
-                "phpunit/php-code-coverage": "^7.0.10",
+                "phpunit/php-code-coverage": "^7.0.12",
                 "phpunit/php-file-iterator": "^2.0.2",
                 "phpunit/php-text-template": "^1.2.1",
                 "phpunit/php-timer": "^2.1.2",
@@ -7676,7 +7784,7 @@
             ],
             "support": {
                 "issues": "https://github.com/sebastianbergmann/phpunit/issues",
-                "source": "https://github.com/sebastianbergmann/phpunit/tree/8.5.9"
+                "source": "https://github.com/sebastianbergmann/phpunit/tree/8.5.11"
             },
             "funding": [
                 {
@@ -7688,7 +7796,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-11-10T12:51:38+00:00"
+            "time": "2020-11-27T12:46:45+00:00"
         },
         {
             "name": "scrivo/highlight.php",

@@ -1,9 +1,12 @@
 <?php
+
 namespace App\DataTables;
+
 use App\Models\User;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Services\DataTable;
 use Cache;
+
 class UsersDataTable extends DataTable
 {
     /**
@@ -33,6 +36,7 @@ class UsersDataTable extends DataTable
             })
             ->rawColumns(['newsletter', 'online', 'last', 'action']);
     }
+
     /**
      * Get query source of dataTable.
      *
@@ -43,6 +47,7 @@ class UsersDataTable extends DataTable
     {
         return $model->whereAdmin(false)->newQuery();
     }
+
     /**
      * Optional method if you want to use html builder.
      *
@@ -59,6 +64,7 @@ class UsersDataTable extends DataTable
                     ->lengthMenu()
                     ->language('//cdn.datatables.net/plug-ins/1.10.20/i18n/French.json');
     }
+
     /**
      * Get columns.
      *
@@ -88,6 +94,7 @@ class UsersDataTable extends DataTable
                   ->addClass('text-center'),
         ];
     }
+
     /**
      * Get filename for export.
      *

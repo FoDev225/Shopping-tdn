@@ -2,9 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Http\Request;
 
 class User extends Authenticatable
 {
@@ -20,6 +20,15 @@ class User extends Authenticatable
     ];
 
     /**
+     * The attributes that should be mutated to dates.
+     *
+     * @var array
+     */
+    protected $dates = [
+        'last_seen',
+    ];
+
+    /**
      * The attributes that should be hidden for arrays.
      *
      * @var array
@@ -28,23 +37,17 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    protected $dates = [
-        'last_seen',
-    ];
-
     /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
-
     public function addresses()
     {
         return $this->hasMany(Address::class);
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function orders()
     {
         return $this->hasMany(Order::class);

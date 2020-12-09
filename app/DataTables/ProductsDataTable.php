@@ -1,8 +1,11 @@
 <?php
+
 namespace App\DataTables;
+
 use App\Models\Product;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Services\DataTable;
+
 class ProductsDataTable extends DataTable
 {
     /**
@@ -22,13 +25,14 @@ class ProductsDataTable extends DataTable
                 return '<a href="' . route('produits.edit', $product->id) . '" class="btn btn-xs btn-warning btn-block">Modifier</a>';
             })
             ->addColumn('destroy', function ($product) {
-            return '<a href="' . route('produits.destroy.alert', $product->id) . '" class="btn btn-xs btn-danger btn-block">Supprimer</a>';
+                return '<a href="' . route('produits.destroy.alert', $product->id) . '" class="btn btn-xs btn-danger btn-block">Supprimer</a>';
             })
             ->editColumn('active', function ($product) {
                 return $product->active ? '<i class="fas fa-check text-success"></i>' : ''; 
             })
             ->rawColumns(['show', 'edit', 'destroy', 'active']);
     }
+
     /**
      * Get query source of dataTable.
      *
@@ -39,6 +43,7 @@ class ProductsDataTable extends DataTable
     {
         return $model->newQuery();
     }
+
     /**
      * Optional method if you want to use html builder.
      *
@@ -55,6 +60,7 @@ class ProductsDataTable extends DataTable
                     ->lengthMenu()
                     ->language('//cdn.datatables.net/plug-ins/1.10.20/i18n/French.json');
     }
+
     /**
      * Get columns.
      *
@@ -85,6 +91,7 @@ class ProductsDataTable extends DataTable
               ->addClass('text-center'),
         ];
     }
+
     /**
      * Get filename for export.
      *

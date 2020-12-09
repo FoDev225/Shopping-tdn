@@ -18,8 +18,24 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/animate.min.css') }}" rel="stylesheet">
 
     @yield('css')
+    <style>
+      section
+      {
+        padding-top: 50px;
+        margin: 100px 0;
+      }
+      nav
+      {
+        margin-bottom: 60px;
+      }
+      footer
+      {
+        margin-top: 50px;
+      }
+    </style>
 
 </head>
 <body>

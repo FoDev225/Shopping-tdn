@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::prefix('admin')->middleware('admin')->namespace('Back')->group(function () {
     Route::name('admin')->get('/', 'AdminController@index');
     Route::name('read')->put('read/{type}', 'AdminController@read');
+    Route::name('statistics')->get('statistiques/{year}', 'StatisticsController');
     
     Route::name('shop.edit')->get('boutique', 'ShopController@edit');
     Route::name('shop.update')->put('boutique', 'ShopController@update');
@@ -37,6 +38,9 @@ Route::prefix('admin')->middleware('admin')->namespace('Back')->group(function (
 
     Route::resource('pages', 'PageController')->except('show');
     Route::name('pages.destroy.alert')->get('pages/{page}', 'PageController@alert');
+
+    Route::resource('categories', 'CategoryController')->except('show');
+    Route::name('categories.destroy.alert')->get('categories/{category}', 'CategoryController@alert');
 
     Route::resource('produits', 'ProductController')->except('show');
     Route::name('produits.destroy.alert')->get('produits/{produit}', 'ProductController@alert');
@@ -87,6 +91,7 @@ Route::prefix('passe')->group(function () {
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('page/{page:slug}', 'HomeController@page')->name('page');
+Route::name('home.category')->get('/categorie/{category}', 'HomeController@category');
 
 // Utilisateur authentifié
 Route::middleware('auth')->group(function () {

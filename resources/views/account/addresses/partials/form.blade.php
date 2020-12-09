@@ -1,11 +1,13 @@
 <div class="card-content">
   @csrf
+
   <div class="row col s12">
     <label>
       <input type="checkbox" name="professionnal" id="professionnal" {{ old('professionnal', isset($adress) ? $adress->professionnal : false) ? 'checked' : '' }}>
       <span>C'est une adresse professionnelle</span>
     </label>
   </div>
+
   <div class="row col s12">
     <label>
       <input name="civility" type="radio" value="Mme" {{ old('civility', isset($adress) ? $adress->civility : '') == 'Mme' ? 'checked' : '' }} />
@@ -16,6 +18,7 @@
       <span>M.</span>
     </label>
   </div>
+
   <x-input
     name="name"
     type="text"
@@ -23,6 +26,7 @@
     label="Nom"
     :value="isset($adress) ? $adress->name : ''"
   ></x-input>
+
   <x-input
     name="firstname"
     type="text"
@@ -30,6 +34,7 @@
     label="Prénom"
     :value="isset($adress) ? $adress->firstname : ''"
   ></x-input>
+
   <x-input
     name="company"
     type="text"
@@ -37,6 +42,7 @@
     label="Raison sociale"
     :value="isset($adress) ? $adress->company : ''"
   ></x-input>
+
   <x-input
     name="address"
     type="text"
@@ -45,6 +51,7 @@
     :value="isset($adress) ? $adress->address : ''"
     required="true"
   ></x-input>
+
   <x-input
     name="addressbis"
     type="text"
@@ -52,6 +59,7 @@
     label="Bâtiment, Immeuble (optionnel)"
     :value="isset($adress) ? $adress->addressbis : ''"
   ></x-input>
+
   <x-input
     name="bp"
     type="text"
@@ -59,6 +67,7 @@
     label="Lieu-dit ou BP (optionnel)"
     :value="isset($adress) ? $adress->bp : ''"
   ></x-input>
+
   <x-input
     name="postal"
     type="text"
@@ -67,6 +76,7 @@
     :value="isset($adress) ? $adress->postal : ''"
     required="true"
   ></x-input>
+
   <x-input
     name="city"
     type="text"
@@ -75,6 +85,7 @@
     :value="isset($adress) ? $adress->city : ''"
     required="true"
   ></x-input>
+
   <div class="row">
     <div class="input-field col s12">
       <i class="material-icons prefix">location_on</i>
@@ -89,6 +100,7 @@
       <label>Pays</label>
     </div>
   </div>
+
   <x-input
     name="phone"
     type="text"
@@ -97,6 +109,7 @@
     :value="isset($adress) ? $adress->phone : ''"
     required="true"
   ></x-input>
+
   <p>
     <button class="btn waves-effect waves-light" style="width: 100%" type="submit">
       Enregistrer

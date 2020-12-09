@@ -1,4 +1,5 @@
 @extends('back.layout')
+
 @section('main') 
   <div class="container-fluid"> 
     <form id="deleteproduct" action="{{ route('pays.destroy', $country->id) }}" method="POST" style="display: none;">

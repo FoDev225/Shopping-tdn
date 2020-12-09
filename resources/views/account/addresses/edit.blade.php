@@ -1,4 +1,5 @@
 @extends('layouts.app')
+
 @section('content')
 <div class="container">
   <h2>Mettre à jour mon adresse</h2>
@@ -15,6 +16,7 @@
   </div>
 </div>
 @endsection
+
 @section('javascript')
   @include('account.addresses.partials.script')
 @endsection

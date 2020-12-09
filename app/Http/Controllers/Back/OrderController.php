@@ -21,35 +21,15 @@ class OrderController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Order  $order
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
         $order = Order::with('adresses', 'products', 'state', 'user', 'user.orders', 'payment_infos')->findOrFail($id);
+
         // Cas du mandat administratif
         $annule_indice = State::whereSlug('annule')->first()->indice;
         $states = $order->payment === 'mandat' && !$order->purchase_order ?
@@ -57,56 +37,23 @@ class OrderController extends Controller
               ->where('indice', '>', 0)
               ->get() :
           State::where('indice', '>=', $order->state->indice)->get();    
-        return view('back.orders.show', compact('order', 'states', 'shop', 'annule_indice'));
-    }
 
-    public function invoice(Request $request, Facture $facture,  Order $commande)
-    {
-        $response = $facture->create($commande, $request->has('paid'));       
-        if($response->successful()) {
-            $data = json_decode($response->body());
-            $commande->invoice_id = $data->id;
-            $commande->invoice_number = $data->number;
-            $commande->save();
-          } else {
-            $request->session()->flash('invoice', 'La création de facture n\'a pas abouti');
-        }
-        return back();
-    }
-
-
-    public function updateNumber(Request $request, Order $commande)
-    {
-        $request->validate([
-            'purchase_order' => 'required|string|max:100'
-        ]);
-        $commande->purchase_order = $request->purchase_order;
-        $commande->save();            
-        return back();
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Order  $order
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Order $order)
-    {
-        //
+        return view('back.orders.show', compact('order', 'states', 'annule_indice'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Order  $order
+     * @param  \App\Models\Order  $commande
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Order $commande)
     {
         $commande->load('state');
+
         $states = State::all();
+
         if($request->state_id !== $commande->state_id) {
             // En cas de changement de type de paiement
             $indice_payment = $states->firstWhere('slug', 'cheque')->indice;
@@ -114,6 +61,7 @@ class OrderController extends Controller
             if($commande->state->indice ===  $indice_payment && $state_new->indice ===  $indice_payment){
                 $commande->payment = $states->firstWhere('id', $request->state_id)->slug;
             }
+
             $commande->state_id = $request->state_id;                      
             $commande->save();          
         }
@@ -122,13 +70,46 @@ class OrderController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Update the specified resource in storage.
      *
-     * @param  \App\Models\Order  $order
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\Order  $commande
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Order $order)
+    public function invoice(Request $request, Facture $facture,  Order $commande)
     {
-        //
+        $response = $facture->create($commande, $request->has('paid')); 
+        
+        if($response->successful()) {
+
+            $data = json_decode($response->body());
+            $commande->invoice_id = $data->id;
+            $commande->invoice_number = $data->number;
+            $commande->save();
+
+          } else {
+            $request->session()->flash('invoice', 'La création de facture n\'a pas abouti');
+        }
+
+        return back();
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\Order  $commande
+     * @return \Illuminate\Http\Response
+     */
+    public function updateNumber(Request $request, Order $commande)
+    {
+        $request->validate([
+            'purchase_order' => 'required|string|max:100'
+        ]);
+
+        $commande->purchase_order = $request->purchase_order;
+        $commande->save();            
+
+        return back();
     }
 }

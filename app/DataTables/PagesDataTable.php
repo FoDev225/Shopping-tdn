@@ -1,8 +1,11 @@
 <?php
+
 namespace App\DataTables;
+
 use App\Models\Page;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Services\DataTable;
+
 class PagesDataTable extends DataTable
 {
     /**
@@ -26,6 +29,7 @@ class PagesDataTable extends DataTable
             })
             ->rawColumns(['show', 'edit', 'destroy']);
     }
+
     /**
      * Get query source of dataTable.
      *
@@ -36,6 +40,7 @@ class PagesDataTable extends DataTable
     {
         return $model->newQuery();
     }
+
     /**
      * Optional method if you want to use html builder.
      *
@@ -52,6 +57,7 @@ class PagesDataTable extends DataTable
                     ->lengthMenu()
                     ->language('//cdn.datatables.net/plug-ins/1.10.20/i18n/French.json');
     }
+
     /**
      * Get columns.
      *
@@ -77,6 +83,7 @@ class PagesDataTable extends DataTable
               ->addClass('text-center'),
         ];
     }
+
     /**
      * Get filename for export.
      *

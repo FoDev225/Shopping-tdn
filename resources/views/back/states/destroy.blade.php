@@ -1,4 +1,5 @@
 @extends('back.layout')
+
 @section('main') 
   <div class="container-fluid"> 
     <form id="deleteproduct" action="{{ route('etats.destroy', $state->id) }}" method="POST" style="display: none;">
@@ -22,3 +23,5 @@
     </div>
   </div>
 @endsection
+
+

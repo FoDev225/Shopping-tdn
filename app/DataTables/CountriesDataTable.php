@@ -5,7 +5,6 @@ namespace App\DataTables;
 use App\Models\Country;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Services\DataTable;
-use App\DataTables\CountriesDataTable;
 
 class CountriesDataTable extends DataTable
 {
@@ -27,6 +26,7 @@ class CountriesDataTable extends DataTable
             })
             ->rawColumns(['edit', 'destroy']);
     }
+
     /**
      * Get query source of dataTable.
      *
@@ -37,6 +37,7 @@ class CountriesDataTable extends DataTable
     {
         return $model->with('ranges', 'addresses', 'order_addresses')->newQuery();
     }
+
     /**
      * Optional method if you want to use html builder.
      *
@@ -53,6 +54,7 @@ class CountriesDataTable extends DataTable
                     ->lengthMenu()
                     ->language('//cdn.datatables.net/plug-ins/1.10.20/i18n/French.json');
     }
+
     /**
      * Get columns.
      *
@@ -74,6 +76,7 @@ class CountriesDataTable extends DataTable
               ->addClass('text-center'),
         ];
     }
+
     /**
      * Get filename for export.
      *

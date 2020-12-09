@@ -1,6 +1,8 @@
 @extends('layouts.app')
+
 @section('content')
 <div class="container">
+
   <div class="row">
     <div class="col s12">
       <div class="card">        
@@ -55,10 +57,13 @@
       </div>
     </div>
   </div>
+
 </div>
 @endsection
+
 @section('javascript')
   <script>
+
     document.addEventListener('DOMContentLoaded', () => {
       const quantities = document.querySelectorAll('input[name="quantity"]');
       quantities.forEach( input => {
@@ -73,6 +78,7 @@
           }
         });
       }); 
+
       const deletes = document.querySelectorAll('.deleteItem');
       deletes.forEach( icon => {
         icon.addEventListener('click', e => {

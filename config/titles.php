@@ -72,4 +72,6 @@ return [
     'maintenance' => [
         'edit' => 'Maintenance',
     ],
+
+    'statistics' => 'Statistiques',
 ];

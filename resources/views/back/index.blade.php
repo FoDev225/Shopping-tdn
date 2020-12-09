@@ -1,4 +1,5 @@
 @extends('back.layout') 
+
 @section('main') 
   <div class="container-fluid">
     @if(app()->isDownForMaintenance())

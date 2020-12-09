@@ -1,4 +1,5 @@
 @extends('layouts.app')
+
 @section('content')
 <div class="container">
   <h2>Mes informations personnelles</h2>
@@ -8,6 +9,7 @@
         <form  method="POST" action="{{ route('identite.update') }}">
           @csrf
           @method('PUT')
+
           @if(session()->has('message'))
             <div class="col s12">
               <div class="card purple darken-3">
@@ -17,6 +19,7 @@
               </div>
             </div>
           @endif
+
           <div class="card-content">
             
             <x-input
@@ -27,6 +30,7 @@
               required="true"
               :value="$user->firstname"
             ></x-input>
+
             <x-input
               name="name"
               type="text"
@@ -35,6 +39,7 @@
               required="true"
               :value="$user->name"
             ></x-input>
+
             <x-input
               name="email"
               type="email"
@@ -43,12 +48,14 @@
               required="true"
               :value="$user->email"
             ></x-input>
+
             <div class="row col s12">
               <label>
                 <input type="checkbox" name="newsletter" id="newsletter" {{ old('newsletter', $user->newsletter) ? 'checked' : '' }}>
                 <span>{{ config('messages.newletter') }}</span>
               </label>
             </div>
+
             <div class="row col s12">
               <label>
                 <input type="checkbox" name="rgpd" id="rgpd" {{ old('rgpd') ? 'checked' : '' }}>
@@ -61,6 +68,7 @@
                 Enregistrer
               </button>
             </p>
+
           </div>
         </form>
       </div>
@@ -71,6 +79,7 @@
   </div>
 </div>
 @endsection
+
 @section('javascript')
   <script>
     document.addEventListener('DOMContentLoaded', function() {

@@ -1,7 +1,9 @@
 @extends('back.layout')
+
 @section('css')
   <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.16/dist/summernote-bs4.min.css" rel="stylesheet">
 @endsection
+
 @section('main') 
   <div class="container-fluid"> 
     @if(session()->has('alert'))
@@ -27,18 +29,22 @@
                   label="Titre"
                   :value="isset($page) ? $page->title : ''"
                 ></x-inputbs4>
+
                 <x-inputbs4
                   name="slug"
                   type="text"
                   label="Slug"
                   :value="isset($page) ? $page->slug : ''"
                 ></x-inputbs4>
+
                 <div class="form-group">
                   <label for="text">Texte</label>
                   <textarea id="text" name="text"></textarea>
                 </div>
+
               </div>
             </div>      
+
             <div class="form-group row mb-0">
               <div class="col-md-12">
                 <a class="btn btn-primary" href="{{ route('pages.index') }}" role="button"><i class="fas fa-arrow-left"></i> Retour à la liste des pages</a>
@@ -47,11 +53,13 @@
             </div>
               
           </form>
+
         </div>
       </div>
     </div>
   </div>
 @endsection
+
 @section('js')
   <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.16/dist/summernote-bs4.min.js"></script>
   <script>
@@ -231,3 +239,4 @@
     });
   </script>
 @endsection
+

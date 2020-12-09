@@ -35,15 +35,18 @@ class ProductController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\ProductRequest  $request
      * @return \Illuminate\Http\Response
      */
     public function store(ProductRequest $request)
     {
         $inputs = $this->getInputs($request);
+
         Product::create($inputs);
+
         return back()->with('alert', config('messages.productcreated'));
     }
+
     protected function saveImages($request)
     {
         $image = $request->file('image');
@@ -51,16 +54,20 @@ class ProductController extends Controller
         $img = InterventionImage::make($image->path());
         $img->widen(800)->encode()->save(public_path('/images/') . $name);
         $img->widen(400)->encode()->save(public_path('/images/thumbs/') . $name);
+
         return $name;
     }
-    
+
     protected function getInputs($request)
     {
         $inputs = $request->except(['image']);
+
         $inputs['active'] = $request->has('active');
+
         if($request->image) {
             $inputs['image'] = $this->saveImages($request);
         }
+
         return $inputs;
     }
 
@@ -73,20 +80,9 @@ class ProductController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Product  $product
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Product $product)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Product  $product
+     * @param  \App\Models\Product $produit
      * @return \Illuminate\Http\Response
      */
     public function edit(Product $produit)
@@ -97,30 +93,40 @@ class ProductController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Product  $product
+     * @param  \Illuminate\Http\ProductRequest  $request
+     * @param  \App\Models\Product $produit
      * @return \Illuminate\Http\Response
      */
     public function update(ProductRequest $request, Product $produit)
     {
         $inputs = $this->getInputs($request);
+
         if($request->has('image')) {
             $this->deleteImages($produit);        
         }
+
         $produit->update($inputs);
+
         return back()->with('alert', config('messages.productupdated'));
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Product  $product
+     * @param  \App\Models\Product $produit
      * @return \Illuminate\Http\Response
      */
     public function destroy(Product $produit)
     {
         $this->deleteImages($produit); 
+
         $produit->delete();
+
         return redirect(route('produits.index'));
+    }
+
+    public function alert(Product $produit)
+    {
+        return view('back.products.destroy', ['product' => $produit]);
     }
 }

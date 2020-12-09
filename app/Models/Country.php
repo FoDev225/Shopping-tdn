@@ -7,21 +7,23 @@ use Illuminate\Database\Eloquent\Model;
 class Country extends Model
 {
     protected $fillable = [
-	    'name', 'tax',
-	];
-	
-	public $timestamps = false;
+        'name', 'tax',
+    ];
 
-	public function ranges()
-	{
-	    return $this->belongsToMany(Range::class, 'colissimos')->withPivot('id', 'price');
-	}
-	public function addresses()
-	{
-	    return $this->hasMany(Address::class);
-	}
-	public function order_addresses()
-	{
-	    return $this->hasMany(OrderAddress::class);
-	}
+    public $timestamps = false;
+
+    public function ranges()
+    {
+        return $this->belongsToMany(Range::class, 'colissimos')->withPivot('id', 'price');
+    }
+
+    public function addresses()
+    {
+        return $this->hasMany(Address::class);
+    }
+
+    public function order_addresses()
+    {
+        return $this->hasMany(OrderAddress::class);
+    }
 }

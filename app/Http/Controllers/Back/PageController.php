@@ -13,6 +13,7 @@ class PageController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @param  \App\DataTables\PagesDataTable  $dataTable
      * @return \Illuminate\Http\Response
      */
     public function index(PagesDataTable $dataTable)
@@ -33,24 +34,14 @@ class PageController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\PageRequest  $request
      * @return \Illuminate\Http\Response
      */
     public function store(PageRequest $request)
     {
         Page::create($request->all());
-        return back()->with('alert', config('messages.pagecreated'));
-    }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Page  $page
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Page $page)
-    {
-        //
+        return back()->with('alert', config('messages.pagecreated'));
     }
 
     /**
@@ -67,13 +58,14 @@ class PageController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\PageRequest  $request
      * @param  \App\Models\Page  $page
      * @return \Illuminate\Http\Response
      */
     public function update(PageRequest $request, Page $page)
     {
         $page->update($request->all());
+
         return back()->with('alert', config('messages.pageupdated'));
     }
 
@@ -86,8 +78,10 @@ class PageController extends Controller
     public function destroy(Page $page)
     {
         $page->delete();
+
         return redirect(route('pages.index'));
     }
+
     public function alert(Page $page)
     {
         return view('back.pages.destroy', compact('page'));

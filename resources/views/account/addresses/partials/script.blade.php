@@ -10,6 +10,7 @@
         document.querySelector('label[for="firstname"]').firstChild.textContent = "Prénom";
       }     
   }
+
   document.addEventListener('DOMContentLoaded', () => {
     toggleProfessionnal();    
     document.querySelector('#professionnal').addEventListener('click', () => toggleProfessionnal());

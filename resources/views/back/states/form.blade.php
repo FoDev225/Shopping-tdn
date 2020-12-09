@@ -1,4 +1,5 @@
 @extends('back.layout')
+
 @section('main') 
   <div class="container-fluid"> 
     @if(session()->has('alert'))
@@ -25,6 +26,7 @@
                   :value="isset($state) ? $state->name : ''"
                   required="true"
                 ></x-inputbs4>
+
                 <x-inputbs4
                   name="slug"
                   type="text"
@@ -32,6 +34,7 @@
                   :value="isset($state) ? $state->slug : ''"
                   required="true"
                 ></x-inputbs4>
+
                 <x-inputbs4
                   name="indice"
                   type="number"
@@ -39,14 +42,17 @@
                   :value="isset($state) ? $state->indice : ''"
                   required="true"
                 ></x-inputbs4>
+
                 <label>Couleur</label>
                 <select id="color" name="color" class="custom-select custom-select-md mb-3">
                   <option value="red" @if(isset($state) && $state->color === 'red') selected @endif>Rouge</option>
                   <option value="blue" @if(isset($state) && $state->color === 'blue') selected @endif>Bleu</option>
                   <option value="green" @if(isset($state) && $state->color === 'green') selected @endif>Vert</option>
                 </select>
+
               </div>
             </div>
+
             <div class="form-group row mb-0">
               <div class="col-md-12">
                 <a class="btn btn-primary" href="{{ route('etats.index') }}" role="button"><i class="fas fa-arrow-left"></i> Retour à la liste des états</a>
@@ -55,8 +61,10 @@
             </div>
               
           </form>
+
         </div>
       </div>
     </div>
   </div>
 @endsection
+

@@ -1,4 +1,5 @@
 @extends('back.layout')
+
 @section('main') 
   <div class="container-fluid"> 
     @if(session()->has('alert'))
@@ -17,6 +18,7 @@
             <div class="card-body">
               @method('PUT')
               @csrf
+
               <div class="card">
                 <h5 class="card-header">Identité</h5>
                 <div class="card-body">
@@ -27,12 +29,14 @@
                     label="Nom"
                     :value="$shop->name"
                   ></x-inputbs4>
+
                   <x-inputbs4
                     name="address"
                     type="text"
                     label="Adresse"
                     :value="$shop->address"
                   ></x-inputbs4>
+
                   <x-inputbs4
                     name="email"
                     type="email"
@@ -46,14 +50,17 @@
                     label="Téléphone"
                     :value="$shop->phone"
                   ></x-inputbs4>
+
                   <x-inputbs4
                     name="facebook"
                     type="text"
                     label="Facebook"
                     :value="$shop->facebook"
                   ></x-inputbs4>
+
                 </div>
               </div>
+
               <div class="card">
                 <h5 class="card-header">Banque</h5>
                 <div class="card-body">
@@ -64,32 +71,38 @@
                     label="Titulaire"
                     :value="$shop->holder"
                   ></x-inputbs4>
+
                   <x-inputbs4
                     name="bank"
                     type="text"
                     label="Nom"
                     :value="$shop->bank"
                   ></x-inputbs4>
+
                   <x-inputbs4
                     name="bank_address"
                     type="text"
                     label="Adresse"
                     :value="$shop->bank_address"
                   ></x-inputbs4>
+
                   <x-inputbs4
                     name="bic"
                     type="text"
                     label="BIC"
                     :value="$shop->bic"
                   ></x-inputbs4>
+
                   <x-inputbs4
                     name="iban"
                     type="text"
                     label="IBAN"
                     :value="$shop->iban"
                   ></x-inputbs4>
+
                 </div>
               </div>
+
               <div class="card">
                 <h5 class="card-header">Accueil</h5>
                 <div class="card-body">
@@ -100,21 +113,26 @@
                     label="Titre"
                     :value="$shop->home"
                   ></x-inputbs4>
+
                   <x-textareabs4
                     name="home_infos"
                     label="Informations générales"
                     :value="$shop->home_infos"
                   ></x-textareabs4>
+
                   <x-textareabs4
                     name="home_shipping"
                     label="Frais d'expédition"
                     :value="$shop->home_shipping"
                   ></x-textareabs4>
+
                 </div>
               </div>
+
               <div class="card">
                 <h5 class="card-header">Facturation</h5>
                 <div class="card-body">
+
                   <x-checkbox
                     name="invoice"
                     label="Activation de la facturation"
@@ -123,9 +141,11 @@
                   
                 </div>
               </div>
+
               <div class="card">
                 <h5 class="card-header">Modes de paiement acceptés</h5>
                 <div class="card-body">
+
                   <x-checkbox
                     name="card"
                     label="Carte bancaire"
@@ -152,6 +172,7 @@
                 
                 </div>
               </div>
+
               <div class="form-group row mb-0">
                 <div class="col-md-12">
                    <button type="submit" class="btn btn-primary">Enregistrer</button>
@@ -160,8 +181,10 @@
               
             </div>            
           </form>
+
         </div>
       </div>
     </div>
   </div>
 @endsection
+

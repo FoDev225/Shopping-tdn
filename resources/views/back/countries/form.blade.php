@@ -1,4 +1,5 @@
 @extends('back.layout')
+
 @section('main') 
   <div class="container-fluid"> 
     @if(session()->has('alert'))
@@ -24,14 +25,17 @@
                   label="Nom"
                   :value="isset($country) ? $country->name : ''"
                 ></x-inputbs4>
+
                 <x-inputbs4
                   name="tax"
                   type="text"
                   label="Taxe"
                   :value="isset($country) ? $country->tax : ''"
                 ></x-inputbs4>
+
               </div>
             </div>      
+
             <div class="form-group row mb-0">
               <div class="col-md-12">
                 <a class="btn btn-primary" href="{{ route('pays.index') }}" role="button"><i class="fas fa-arrow-left"></i> Retour à la liste des pays</a>
@@ -40,8 +44,10 @@
             </div>
               
           </form>
+
         </div>
       </div>
     </div>
   </div>
 @endsection
+

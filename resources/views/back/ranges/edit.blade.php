@@ -1,4 +1,5 @@
 @extends('back.layout')
+
 @section('main') 
   <div class="container-fluid"> 
       @if(session()->has('alert'))
@@ -21,6 +22,7 @@
             <div class="card-body">
               @method('PUT')
               @csrf
+
               <div class="card">
                 <h5 class="card-header">Plages</h5>
                 <div class="card-body">
@@ -41,10 +43,13 @@
                           <td>@if($loop->last) <button type="button" class="btn btn-danger btn-block">Supprimer</button> @endif</td>
                         </tr>
                       @endforeach
+
                     </tbody>
                   </table>
+
                 </div>
               </div>
+
               <div class="form-group row mb-0">
                 <div class="col-md-12">
                    <button type="submit" class="btn btn-primary">Enregistrer</button>
@@ -54,14 +59,18 @@
               
             </div>            
           </form>
+
         </div>
       </div>
     </div>
   </div>
 @endsection
+
 @section('js')
   <script>
+
     let ranges = [];
+
     const checkValue = (indice, value) => {
       if(isNaN(value)) {
         return false;
@@ -78,10 +87,12 @@
       }
       return true;
     }
+
     $(document).ready(() => {
       $('.max').each((index, element) => {
         ranges.push(Number($(element).val()))        
       });
+
       $(document).on('change', 'input', e => {
         const indice = $(e.currentTarget).attr('name') - 1;
         const value = $(e.currentTarget).val();
@@ -93,6 +104,7 @@
           $('button[type=submit]').removeClass('disabled');
         }      
       });
+
       $(document).on('input', 'input', e => {
         const indice = $(e.currentTarget).attr('name') - 1;
         const input = $('input[name=' + (indice + 1) + ']');
@@ -104,6 +116,7 @@
           $('button[type=submit]').addClass('disabled');
         }
       });
+
       $(document).on('click', 'button.btn-danger', e => {
         $('input[name=' + (ranges.length) + ']').parent().parent().remove();
         ranges.pop();
@@ -113,6 +126,7 @@
           );
         }     
       });
+
       $('button.btn-success').click(e => {
         e.preventDefault();
         $('input[name=' + (ranges.length) + ']').parent().next().html('');

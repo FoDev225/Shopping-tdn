@@ -1,4 +1,5 @@
 @extends('back.layout')
+
 @section('main') 
   <div class="card">
     <h5 class="card-header">Identité</h5>
@@ -19,6 +20,7 @@
       </dl>
     </div>
   </div>
+
   @if($user->orders->isNotEmpty())
     <div class="card">
       <h5 class="card-header">Commandes</h5>
@@ -50,6 +52,7 @@
       </div>
     </div>
   @endif
+
   <div class="card">
     <h5 class="card-header">@if($user->addresses->count() === 1) Adresse @else Adresses @endif</h5>
     <div class="card-body">
@@ -66,9 +69,11 @@
       </div>    
     </div>
   </div>
+
   <div class="form-group row mb-0">
     <div class="col-md-12">
       <a class="btn btn-primary" href="{{ route('clients.index') }}" role="button"><i class="fas fa-arrow-left"></i> Retour à la liste des clients</a>    
     </div>
   </div><br>
+
 @endsection

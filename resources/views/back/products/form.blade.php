@@ -1,9 +1,11 @@
 @extends('back.layout')
+
 @section('css')
   <style>
     .custom-file-label::after { content: "Parcourir"; }
   </style>
 @endsection
+
 @section('main') 
   <div class="container-fluid"> 
     @if(session()->has('alert'))
@@ -29,11 +31,13 @@
                 label="Nom"
                 :value="isset($product) ? $product->name : ''"
               ></x-inputbs4>
+
               <x-textareabs4
                 name="description"
                 label="Description"
                 :value="isset($product) ? $product->description : ''"
               ></x-textareabs4>
+
               <x-inputbs4
                 name="weight"
                 type="text"
@@ -41,6 +45,7 @@
                 :value="isset($product) ? $product->weight : ''"
                 required="true"
               ></x-inputbs4>
+
               <x-inputbs4
                 name="price"
                 type="text"
@@ -48,6 +53,7 @@
                 :value="isset($product) ? $product->price : ''"
                 required="true"
               ></x-inputbs4>
+
               <x-inputbs4
                 name="quantity"
                 type="number"
@@ -63,6 +69,7 @@
                 :value="isset($product) ? $product->quantity_alert : ''"
                 required="true"
               ></x-inputbs4>
+
               <div class="form-group{{ $errors->has('image') ? ' is-invalid' : '' }}">
                 <label for="description">Image</label>
                 @if(isset($product) && !$errors->has('image'))
@@ -86,12 +93,14 @@
                   @endif
                 </div>
               </div>
+
               <div class="form-group">
                 <div class="custom-control custom-checkbox">
                   <input type="checkbox" class="custom-control-input" id="active" name="active" @if(old('active', isset($product) ? $product->active : false)) checked @endif>
                   <label class="custom-control-label" for="active">Produit actif</label>
                 </div>
               </div>
+
               <div class="form-group row mb-0">
                 <div class="col-md-12">
                   <a class="btn btn-primary" href="{{ route('produits.index') }}" role="button"><i class="fas fa-arrow-left"></i> Retour à la liste des produits</a>
@@ -101,11 +110,13 @@
               
             </div>            
           </form>
+
         </div>
       </div>
     </div>
   </div>
 @endsection
+
 @section('js')
   <script>
     $(document).ready(() => {

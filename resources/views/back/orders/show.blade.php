@@ -1,4 +1,5 @@
 @extends('back.layout')
+
 @section('main') 
   <div class="card">
     <h5 class="card-header">Commande 
@@ -47,7 +48,7 @@
         <div class="card">
           <h5 class="card-header">Bon de commande</h5>
           <div class="card-body">
-            <form method="POST" action="#">
+            <form method="POST" action="{{ route('orders.updateNumber', $order->id) }}">
               @method('PUT')
               @csrf   
               <x-inputbs4
@@ -64,7 +65,7 @@
       <div class="card">
         <h5 class="card-header">Etat : <span class="badge badge-{{ config('colors.' . $order->state->color) }}"> {{ $order->state->name }}</span></h5>
         <div class="card-body">
-          <form method="POST" action="{{ route('orders.updateNumber', $order->id) }}">
+          <form method="POST" action="{{ route('orders.update', $order->id) }}">
             @method('PUT')
             @csrf   
             <select id="state_id" name="state_id" class="custom-select custom-select-md mb-3">
@@ -140,6 +141,7 @@
       </div>
     </div>
   </div>
+
   <div class="card">
     <h5 class="card-header">Client : 
     <a href="{{ route('clients.show', $order->user->id) }}"><span class="badge badge-primary">{{ $order->user->firstname . ' ' . $order->user->name }}</span></a>  
@@ -160,6 +162,7 @@
       </div>
     </div>
   </div>
+
   <div class="card">
     <h5 class="card-header">Adresses</h5>
     <div class="card-body">
@@ -189,4 +192,6 @@
       </div>
     </div>
   </div>
+
 @endsection
+

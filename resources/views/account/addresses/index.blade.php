@@ -1,4 +1,5 @@
 @extends('layouts.app')
+
 @section('content')
 <div class="container">
   <h2>Mes adresses</h2>
@@ -27,8 +28,10 @@
   </div>
 </div>
 @endsection
+
 @section('javascript')
   <script>
+
       const del = async url => {
         const response = await fetch(url, { 
           method: 'DELETE',
@@ -36,10 +39,12 @@
         });
         location.reload(true);        
       };
+
       document.addEventListener('DOMContentLoaded', () => {
         @if(session()->has('alert'))
           M.toast({ html: '{{ session('alert') }}' });
         @endif
+
         const deleteButtons = document.querySelectorAll('.delete');
         deleteButtons.forEach( button => {
           button.addEventListener('click', e => {
